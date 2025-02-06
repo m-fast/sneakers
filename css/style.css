@@ -108,6 +108,7 @@ nav {
   color: white;
   border: 1px solid gray;
   z-index: 1;
+  border-radius:8px ;
 }
 
 .buyButton {
@@ -146,18 +147,27 @@ nav {
 
 .sliderItem:nth-child(1) .sliderPrice {
   color: #369e62;
+  border: 1px solid #369e62;
 }
 .sliderItem:nth-child(2) .sliderPrice {
   color: white;
+  border: 1px solid gray;
+
 }
 .sliderItem:nth-child(3) .sliderPrice {
   color: teal;
+  border: 1px solid teal;
+
 }
 .sliderItem:nth-child(4) .sliderPrice {
   color: cornflowerblue;
+  border: 1px solid cornflowerblue;
+
 }
 .sliderItem:nth-child(5) .sliderPrice {
   color: cornsilk;
+  border: 1px solid cornsilk;
+
 }
 
 .features {
@@ -292,11 +302,15 @@ label {
   right: 0;
   width: 40%;
   padding: 50px;
+  font-family: Arbutus Slab, serif;
+
 }
 
 .productTitle {
   font-size: 75px;
   font-weight: 900;
+  font-family: Arbutus Slab, serif;
+  
 }
 
 .productDesc {
@@ -384,9 +398,12 @@ label {
 }
 
 .nsButton {
-  padding: 15px;
-  font-weight: 600;
+  padding: 18px;
+  font-weight: 700;
   cursor: pointer;
+  border-radius: 10px;
+  border: none;
+  font-family: Arbutus Slab, serif;
 }
 
 footer {
@@ -490,7 +507,7 @@ footer {
     top: unset;
     bottom: -50;
     left: 0;
-    background-color: lightgrey;
+    background-color: rgb(0, 0, 0);
   }
 
   .buyButton{
@@ -615,7 +632,7 @@ footer {
 .menuButton {
   border-radius: 50%;
   padding: 10px;
-  background-color: rgb(32, 32, 32);
+  background-color: rgb(39, 38, 38);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -625,22 +642,33 @@ footer {
 }
 
 .menuButton:hover {
-  background-color: rgb(37, 36, 36);
+  background-color: rgb(60, 60, 60);
   transform: scale(1.1);
 }
 
-/* سهم صغير فوق الصورة */
-.menuButton::before {
-  content: "⮟"; /* سهم للأعلى */
+.arrowIcon {
   position: absolute;
-  top: -15px; /* جعله فوق الصورة */
+  top: -15px; 
   font-size: 14px;
   color: white;
   animation: bounce 1.5s infinite;
 }
 
-/* تأثير النبض */
+
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
+  50% { transform: translateY(6px); }
+}
+
+
+
+.animition {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease-out, transform 1s ease-out;
+}
+.hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease-out, transform 1s ease-out;
 }

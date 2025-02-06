@@ -4,7 +4,7 @@ const menuItems = document.querySelectorAll(".menuItem");
 const products = [
   {
     id: 1,
-    title: "Air Force",
+    title: "AIR FORCE",
     price: 119,
     colors: [
       {
@@ -19,7 +19,7 @@ const products = [
   },
   {
     id: 2,
-    title: "Air Jordan",
+    title: " AIR JORDAN",
     price: 149,
     colors: [
       {
@@ -34,7 +34,7 @@ const products = [
   },
   {
     id: 3,
-    title: "Blazer",
+    title: "BLAZER",
     price: 109,
     colors: [
       {
@@ -49,7 +49,7 @@ const products = [
   },
   {
     id: 4,
-    title: "Crater",
+    title: "CRATER",
     price: 129,
     colors: [
       {
@@ -64,7 +64,7 @@ const products = [
   },
   {
     id: 5,
-    title: "Hippie",
+    title: " HIPPIE",
     price: 99,
     colors: [
       {
@@ -154,4 +154,59 @@ close.addEventListener("click", () => {
 
 document.querySelector(".menuToggle").addEventListener("click", function () {
   document.querySelector(".navBottom").classList.toggle("active");
+});
+
+
+
+
+
+
+
+// animition
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".hidden").forEach((element) => {
+    element.style.opacity = "0";
+    element.style.transform = "translateY(30px)";
+  });
+  setTimeout(() => {
+    document.querySelectorAll(".hidden").forEach((element) => {
+      element.style.transition = "opacity 1s ease-out, transform 0.4s ease-out";
+      element.style.opacity = "1";
+      element.style.transform = "translateY(0)";
+    });
+  }, 200);
+});
+
+gsap.utils.toArray(".animition").forEach((el) => {
+  gsap.fromTo(
+    el,
+    { opacity: 0, y: 30 },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      scrollTrigger: {
+        trigger: el,
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+    }
+  );
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const hiddenElements = document.querySelectorAll(".hidden");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  hiddenElements.forEach((el) => observer.observe(el));
 });
