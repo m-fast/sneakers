@@ -586,7 +586,7 @@ footer {
   cursor: pointer;
 }
 
-@media (max-width: 550px) {
+@media (max-width: 580px) {
   .navBottom {
       flex-direction: column;
       align-items: center;
@@ -604,4 +604,43 @@ footer {
   .navBottom.active {
       max-height: 300px; 
   }
+}
+
+
+
+
+
+
+
+.menuButton {
+  border-radius: 50%;
+  padding: 10px;
+  background-color: rgb(32, 32, 32);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.menuButton:hover {
+  background-color: rgb(37, 36, 36);
+  transform: scale(1.1);
+}
+
+/* سهم صغير فوق الصورة */
+.menuButton::before {
+  content: "⮟"; /* سهم للأعلى */
+  position: absolute;
+  top: -15px; /* جعله فوق الصورة */
+  font-size: 14px;
+  color: white;
+  animation: bounce 1.5s infinite;
+}
+
+/* تأثير النبض */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
 }
